@@ -35,6 +35,7 @@ import org.hyperledger.fabric.sdk.QueryByChaincodeRequest;
 import org.hyperledger.fabric.sdk.TransactionInfo;
 import org.hyperledger.fabric.sdk.TransactionProposalRequest;
 import org.hyperledger.fabric.sdk.TransactionRequest.Type;
+import org.hyperledger.fabric.sdk.UpgradeProposalRequest;
 import org.hyperledger.fabric.sdk.exception.ChaincodeEndorsementPolicyParseException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric.sdk.exception.ProposalException;
@@ -184,6 +185,44 @@ public class ChannelClient {
 
 		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
 				"Chaincode " + chaincodeName + " on channel " + channel.getName() + " instantiation " + cf);
+		return responses;
+	}
+
+	public Collection<ProposalResponse> upgradeJavaChainCode(String chaincodeName, String version, String chaincodePath,
+			String functionName, String[] functionArgs, String policyPath)
+			throws InvalidArgumentException, ProposalException, ChaincodeEndorsementPolicyParseException, IOException {
+		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
+				"Upgrade proposal request " + chaincodeName + " on channel " + channel.getName()
+						+ " with Fabric client " + fabClient.getInstance().getUserContext().getMspId() + " "
+						+ fabClient.getInstance().getUserContext().getName());
+		UpgradeProposalRequest request = fabClient.getInstance().newUpgradeProposalRequest();
+		request.setProposalWaitTime(180000);
+		ChaincodeID.Builder chaincodeIDBuilder = ChaincodeID.newBuilder().setName(chaincodeName).setVersion(version);
+//				.setPath(chaincodePath);
+		ChaincodeID ccid = chaincodeIDBuilder.build();
+		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
+				"Upgrade Chaincode ID " + chaincodeName + " on channel " + channel.getName());
+		request.setChaincodeID(ccid);
+		request.setChaincodeLanguage(Type.JAVA);
+//		instantiateProposalRequest.setChaincodePath(chaincodePath);
+		request.setFcn(functionName);
+		request.setArgs(functionArgs);
+		Map<String, byte[]> tm = new HashMap<>();
+		tm.put("HyperLedgerFabric", "UpgradeProposalRequest:JavaSDK".getBytes(UTF_8));
+		tm.put("method", "UpgradeProposalRequest".getBytes(UTF_8));
+		request.setTransientMap(tm);
+
+		if (policyPath != null) {
+			ChaincodeEndorsementPolicy chaincodeEndorsementPolicy = new ChaincodeEndorsementPolicy();
+			chaincodeEndorsementPolicy.fromYamlFile(new File(policyPath));
+			request.setChaincodeEndorsementPolicy(chaincodeEndorsementPolicy);
+		}
+
+		Collection<ProposalResponse> responses = channel.sendUpgradeProposal(request);
+		CompletableFuture<TransactionEvent> cf = channel.sendTransaction(responses);
+
+		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
+				"Chaincode " + chaincodeName + " on channel " + channel.getName() + " upgrade " + cf);
 		return responses;
 	}
 

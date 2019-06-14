@@ -64,6 +64,6 @@ public class Config {
 
 	public static final String CHAINCODE_1_PATH = "fabcar.jar";// "github.com/fabcar";
 
-	public static final String CHAINCODE_1_VERSION = "1.0.4";
+	public static final String CHAINCODE_1_VERSION = "1.0.9";
 
 }

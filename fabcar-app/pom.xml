@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>FabCar Demo by Using Java SDK</name>
 	<properties>
-		<fabric-sdk-java.version>1.4.1</fabric-sdk-java.version>
+		<fabric-sdk-java.version>1.4.4</fabric-sdk-java.version>
 	</properties>
 
 	<build>
