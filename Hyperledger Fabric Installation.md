@@ -2,7 +2,7 @@
 
 Operating System：CentOS
 
-### Prerequisites
+## PREREQUISITES
 
 #### 1. Curl
 
@@ -10,37 +10,37 @@ Already had in CentOS.
 
 #### 2. Docker 
 
-1）Install needed packages
+1). Install needed packages
 
    ```shell
    $ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
    ```
 
-2）Configure the docker-ce repo
+2). Configure the docker-ce repo
 
    ```shell
    $ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
    ```
 
-3） Install docker-ce
+3). Install docker-ce
 
    ```shell
    $ sudo yum install docker-ce
    ```
 
-4） Set Docker to start automatically at boot time
+4). Set Docker to start automatically at boot time
 
    ```shell
    $ sudo systemctl enable docker.service
    ```
 
-5）Start the Docker service
+5). Start the Docker service
 
    ```shell
    $ sudo systemctl start docker.service
    ```
 
-6) Verify
+6). Verify
 
    ```shell
    $ docker --version
@@ -168,7 +168,7 @@ PKG_CONFIG="pkg-config"
 GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build745238100=/tmp/go-build -gno-record-gcc-switches"
    ```
 
-### Install Hyperledger Fabric
+## HYPERLEDGER FABRIC INSTALLATION
 
 1. ##### Using shortened URL and curl command
 
@@ -188,25 +188,25 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
 2. ##### Using the `bootstrap.sh` directly
 
-   1). Download `bootstrap.sh` from URL: 
+1). Download `bootstrap.sh` from URL: 
 
    ```
    https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh
    ```
 
-   2). Copy it to `/home/go` directory, `scp` for remote server, `cp` for local.
+2). Copy it to `/home/go` directory, `scp` for remote server, `cp` for local.
 
    ```shell
    $ scp bootstrap.sh root@134.175.132.47:/home/go
    ```
 
-   3). Set permissions by using `chmod` command
+3). Set permissions by using `chmod` command
 
    ```shell
    $ chmod a+x bootstrap.sh 
    ```
 
-   4). run `bootstrap.sh`
+4). run `bootstrap.sh`
 
    ```shell
    $ ./bootstrap.sh
@@ -240,23 +240,23 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
 3. ##### Manually install Fabric Binaries
 
-   1). Download `fabric` binaries
+1). Download `fabric` binaries
    
    ```
    https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/linux-amd64-1.4.1/hyperledger-fabric-linux-amd64-1.4.1.tar.gz
    ```
 
-   2). Download `fabric-ca` binaries
+2). Download `fabric-ca` binaries
 
    ```
    https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/linux-amd64-1.4.1/hyperledger-fabric-ca-linux-amd64-1.4.1.tar.gz
    ```
 
-   3). Copy them to ` /home/go`
+3). Copy them to ` /home/go`
 
-   4). Extract these 2 files to `/home/go` directory directly.
+4). Extract these 2 files to `/home/go` directory directly.
 
-   5). Verify
+5). Verify
 
    ```shell
    $ tree
@@ -300,7 +300,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
      Docker Namespace: hyperledger
    ```
 
-   6). Install docker images
+6). Install docker images
 
    ```shell
    $ ./bootstrap.sh -s -b
@@ -308,7 +308,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
    `-s -b` Ignore to download binaries and samples
 
-   7). List of docker images
+7). List of docker images
 
    ```sh
    ===> List out hyperledger docker images
