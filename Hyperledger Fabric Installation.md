@@ -48,7 +48,7 @@ Already had in CentOS.
 
 #### 3. Docker Compose
 
-1) Install Extra Packages for Enterprise Linux
+1). Install Extra Packages for Enterprise Linux
 
    ```shell
    $ sudo yum install epel-release
@@ -241,12 +241,16 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 3. ##### Manually install Fabric Binaries
 
    1). Download `fabric` binaries
-
+   
+   ```
    https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/linux-amd64-1.4.1/hyperledger-fabric-linux-amd64-1.4.1.tar.gz
+   ```
 
    2). Download `fabric-ca` binaries
 
+   ```
    https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/linux-amd64-1.4.1/hyperledger-fabric-ca-linux-amd64-1.4.1.tar.gz
+   ```
 
    3). Copy them to ` /home/go`
 
@@ -296,7 +300,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
      Docker Namespace: hyperledger
    ```
 
-6). Install docker images
+   6). Install docker images
 
    ```shell
    $ ./bootstrap.sh -s -b
@@ -304,7 +308,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
    `-s -b` Ignore to download binaries and samples
 
-7). List of docker images
+   7). List of docker images
 
    ```sh
    ===> List out hyperledger docker images
