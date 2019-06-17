@@ -261,7 +261,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
    ```shell
    $ tree
    ```
-	> if you do not have `tree` command, run `yum install tree -y` command to install it.
+> if you do not have `tree` command, run `yum install tree -y` command to install it.
    
    ```sh
    |-- bin
