@@ -1,14 +1,22 @@
 # fabric-java-fabcar
 Hyperledger Fabric Demo by using Java Chaincode and Java SDK
 
-#### 一、工程介绍
+#### 一、Hyperledger Fabric 安装
+
+参考 
+
+1. [Hyperledger Fabric Installation](Hyperledger Fabric Installation.md)
+2. [Prerequisites](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html)
+3. [Install Samples, Binaries and Docker Images](https://hyperledger-fabric.readthedocs.io/en/latest/install.html)
+
+#### 二、工程介绍
 
 1. **fabcar-network**：fabric网络配置和启动文件。
 2. **fabcar-chaincode**：基于Java实现的Chaincode。
 3. **fabcar-app**：fabric应用，基于Java SDK的实现。
 
 
-#### 二、步骤
+#### 三、示例
 
 1. 初始化网络，进入 **fabcar-network**。
 
