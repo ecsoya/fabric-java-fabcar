@@ -5,7 +5,7 @@ Hyperledger Fabric Demo by using Java Chaincode and Java SDK
 
 参考 
 
-1. [Hyperledger Fabric Installation](Hyperledger Fabric Installation.md)
+1. [Hyperledger Fabric Installation](https://github.com/ecsoya/fabric-java-fabcar/blob/master/Hyperledger%20Fabric%20Installation.md)
 2. [Prerequisites](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html)
 3. [Install Samples, Binaries and Docker Images](https://hyperledger-fabric.readthedocs.io/en/latest/install.html)
 
