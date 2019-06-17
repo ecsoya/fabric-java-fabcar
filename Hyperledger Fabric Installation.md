@@ -6,7 +6,7 @@ Operating System：CentOS
 
 #### 1. Curl
 
-CentOS系统自带
+Already had in CentOS.
 
 #### 2. Docker 
 
@@ -18,58 +18,59 @@ CentOS系统自带
 
 2）Configure the docker-ce repo
 
-```shell
-	$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-```
+   ```shell
+   $ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   ```
+
 3） Install docker-ce
 
-```shell
-$ sudo yum install docker-ce
-```
+   ```shell
+   $ sudo yum install docker-ce
+   ```
 
 4） Set Docker to start automatically at boot time
 
-```shell
-$ sudo systemctl enable docker.service
-```
+   ```shell
+   $ sudo systemctl enable docker.service
+   ```
 
 5）Start the Docker service
 
-```shell
-$ sudo systemctl start docker.service
-```
+   ```shell
+   $ sudo systemctl start docker.service
+   ```
 
 6) Verify
 
-```shell
-$ docker --version
-```
+   ```shell
+   $ docker --version
+   ```
 
 #### 3. Docker Compose
 
 1) Install Extra Packages for Enterprise Linux
 
-```shell
-$ sudo yum install epel-release
-```
+   ```shell
+   $ sudo yum install epel-release
+   ```
 
 2). Install python-pip
 
-```shell
-$ sudo yum install -y python-pip
-```
+   ```shell
+   $ sudo yum install -y python-pip
+   ```
 
-*3*). Then Install Docker Compose
+3). Then Install Docker Compose
 
-```shell
-$ sudo pip install docker-compose
-```
+   ```shell
+   $ sudo pip install docker-compose
+   ```
 
 4). You will also need to upgrade your Python packages on CentOS 7 to get docker-compose to run successfully
 
-```shell
-$ sudo yum upgrade python*
-```
+   ```shell
+   $ sudo yum upgrade python*
+   ```
 
 5). Upgrade pip if needed 
 
@@ -77,47 +78,49 @@ You are using pip version 8.1.2, however version 19.1.1 is available.
 
 You should consider upgrading via the 'pip install --upgrade pip' command.
 
-```shell
-pip install --upgrade pip
-```
+   ```shell
+   $ pip install --upgrade pip
+   ```
 
 6). Verify
 
-```shell
-$ docker-compose version
-```
+   ```shell
+   $ docker-compose version
+   ```
 
 #### 4. Go Programming Language
 
 1). Download install file for Linux
 
-https://golang.org/doc/install?download=go1.12.6.linux-amd64.tar.gz
+   ```
+   https://golang.org/doc/install?download=go1.12.6.linux-amd64.tar.gz
+   ```
 
 2). If you using a remote server, upload with `scp` command, otherwise using just `cp`command.
 
-```shell
-$ scp go1.12.6.linux-amd64.tar.gz root@134.175.132.47:/home/soyatec
-```
+   ```shell
+   $ scp go1.12.6.linux-amd64.tar.gz root@134.175.132.47:/home/soyatec
+   ```
 
 3). Extract the downloaded tarball to */usr/local*
 
-```shell
-$ tar -C /usr/local/ -xzf /home/soyatec/go1.12.6.linux-amd64.tar.gz 
-```
+   ```shell
+   $ tar -C /usr/local/ -xzf /home/soyatec/go1.12.6.linux-amd64.tar.gz 
+   ```
 
 4). Set Go Path
 
-```shell
-$ sudo vim /etc/profile
-```
+   ```shell
+   $ sudo vim /etc/profile
+   ```
 
 add following lines at the end of `etc/profile` file.
 
-```sh
-export GOROOT=/usr/local/go
-export GOPATH=/home/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-```
+   ```sh
+   export GOROOT=/usr/local/go
+   export GOPATH=/home/go
+   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+   ```
 
 > There are 2 paths added: 
 >
@@ -126,17 +129,17 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 then run the `source` command to applying new env.
 
-```shell
-$ source /etc/profile
-```
+   ```shell
+   $ source /etc/profile
+   ```
 
 5). Verify
 
-```shell
-$ go env
-```
+   ```shell
+   $ go env
+   ```
 
-```sh
+   ```sh
 GOARCH="amd64"
 GOBIN=""
 GOCACHE="/root/.cache/go-build"
@@ -163,7 +166,7 @@ CGO_FFLAGS="-g -O2"
 CGO_LDFLAGS="-g -O2"
 PKG_CONFIG="pkg-config"
 GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build745238100=/tmp/go-build -gno-record-gcc-switches"
-```
+   ```
 
 ### Install Hyperledger Fabric
 
@@ -187,7 +190,9 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
    1). Download `bootstrap.sh` from URL: 
 
+   ```
    https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh
+   ```
 
    2). Copy it to `/home/go` directory, `scp` for remote server, `cp` for local.
 
@@ -278,7 +283,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
    $ peer version
    ```
    
-	```sh
+   ```sh
    peer:
     Version: 1.4.1
     Commit SHA: 87074a7
@@ -289,15 +294,15 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
      Base Docker Namespace: hyperledger
      Base Docker Label: org.hyperledger.fabric
      Docker Namespace: hyperledger
-	```
+   ```
 
 6). Install docker images
 
-	```shell
-	$ ./bootstrap.sh -s -b
-	```
+   ```shell
+   $ ./bootstrap.sh -s -b
+   ```
 
-​	`-s -b` Ignore to download binaries and samples
+   `-s -b` Ignore to download binaries and samples
 
 7). List of docker images
 
