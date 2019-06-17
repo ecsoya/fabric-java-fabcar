@@ -170,7 +170,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
 ## HYPERLEDGER FABRIC INSTALLATION
 
-1. ##### Using shortened URL and curl command
+##### 1. Using shortened URL and curl command
 
    ```shell
    $ cd /home/go
@@ -186,7 +186,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
    This may be very slow, you can try the second method.
 
-2. ##### Using the `bootstrap.sh` directly
+##### 2. Using the `bootstrap.sh` directly
 
 1). Download `bootstrap.sh` from URL: 
 
@@ -238,7 +238,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-bu
 
    The download may take long time, you can download specific binaries and then untar them to `/home/go`
 
-3. ##### Manually install Fabric Binaries
+##### 3. Manually install Fabric Binaries
 
 1). Download `fabric` binaries
    
