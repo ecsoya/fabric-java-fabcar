@@ -1,5 +1,7 @@
 package org.ecsoya.fabric;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -11,12 +13,15 @@ import org.hyperledger.fabric.shim.ChaincodeStub;
 import org.hyperledger.fabric.shim.ledger.KeyValue;
 import org.hyperledger.fabric.shim.ledger.QueryResultsIterator;
 
+import com.google.protobuf.ByteString;
+
 public class FabcarChaincode extends ChaincodeBase {
 	private static Log logger = LogFactory.getLog(FabcarChaincode.class);
 
 	@Override
 	public Response init(ChaincodeStub stub) {
 		logger.info("Chaincode Fabcar: Initialize Fabcar chaincode");
+		createCar(stub);
 		return newSuccessResponse();
 	}
 
@@ -95,7 +100,8 @@ public class FabcarChaincode extends ChaincodeBase {
 			alreadyWritten = true;
 		}
 		buffer.append("]");
-		return newSuccessResponse(buffer.toString().getBytes());
+		String value = buffer.toString();
+		return newSuccessResponse(value, ByteString.copyFrom(value, UTF_8).toByteArray());
 	}
 
 	private Response createCar(ChaincodeStub stub) {
@@ -142,7 +148,7 @@ public class FabcarChaincode extends ChaincodeBase {
 
 		logger.info("Chaincode Fabcar: queryCar for " + key);
 		String car = stub.getStringState(key);
-		return newSuccessResponse(car.getBytes());
+		return newSuccessResponse(car, ByteString.copyFrom(car, UTF_8).toByteArray());
 	}
 
 	public static void main(String[] args) {
