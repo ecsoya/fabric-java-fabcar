@@ -6,8 +6,8 @@
 
 ## Tips
 
-1. Using Java Chaincode ../fabcar-chaincode
-2. ${COMPOSE_PROJECT_NAME} parameter has a problem, I replaced with hard code one
+1. Using Java Chaincode `../fabcar-chaincode`
+2. `${COMPOSE_PROJECT_NAME}` parameter has a problem while initialization the chaincode.
 
 ```
 - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_byfn
