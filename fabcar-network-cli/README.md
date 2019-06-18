@@ -1,8 +1,8 @@
 # Build Fabcar Network with CLI
 
-* ./byfn.sh generate
-* ./byfn.sh up
-* ./byfn.sh down
+* `./byfn.sh generate`
+* `./byfn.sh up`
+* `./byfn.sh down`
 
 ## Tips
 
